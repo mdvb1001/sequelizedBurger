@@ -6,18 +6,17 @@ var Burger = sequelize.define("burger", {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
-        primaryKey: true,
+        primaryKey: true
     },
     burger_name: Sequelize.STRING,
     devoured: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
     },
-    created_at: {
-        type: Sequelize.DATE,
-        field: 'beginTime',
-        defaultValue: sequelize.literal('NOW()')
-    }
+    // created_at: {
+    //     type: Sequelize.DATE,
+    //     defaultValue: Sequelize.NOW
+    // }
 }, {
     timestamps: true
 });

@@ -4,8 +4,7 @@ var Burger = require("../models/burger.js");
 module.exports = function (app) {
     // Get the root route
     app.get("/", function (req, res) {
-        if (req.params.devoured === false) {
-            Burger.getAll({
+            Burger.findAll({
                 where: {
                     devoured: false
                 }
@@ -14,17 +13,17 @@ module.exports = function (app) {
                     burgers: result
                 });
             });
-        } else {
-            Burger.getAll({
+    app.get("/", function (req, res){
+            Burger.findAll({
                 where: {
                     devoured: true
                 }
-            }).then(function (result) {
+            }).then(function (result1) {
                 return res.render("index", {
-                    devoured_burgers: result
+                    devoured_burgers: result1
                 });
             });
-        }
+        });
     });
     // Get the API route, which displays all burgers
     app.get("/api/burgers/:id?", function (req, res) {
@@ -49,24 +48,16 @@ module.exports = function (app) {
     app.post('/', function (req, res) {
         var newBurg = req.body.burger;
         // Makes sure something is inputed
-        if (newBurg !== "") {
             Burger.create({
-                where: {
-                    burger_name: newBurg.burger_name
-                }
-            }).then(function (result) {
-                return res.json(result);
+                burger_name: newBurg.burger_name
             });
-        } else {
-            res.redirect('/');
-        }
     });
     // Defines the updates for when burgers are "devoured"
     app.put('/:id', function (req, res) {
         var selectBurg = req.params.id;
-        Book.findOne({
+        Burger.findOne({
             where: {
-                title: selectBurg
+                id: selectBurg
             }
         }).then(function (result) {
             Burger.update({
