@@ -8,6 +8,7 @@ var exphbs = require("express-handlebars");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+var db = require("./models"); //////////////////////////////////
 
 // Links the static content (i.e. css and images)
 app.use(express.static(__dirname + '/public'));
@@ -29,6 +30,8 @@ require("./controllers/burgers_controller.js")(app);
 
 
 // Listens for connection to server on PORT
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+db.sequelize.sync().then(function(){
+    app.listen(PORT, function() {
+        console.log("listening on: " + PORT);
+    });
 });
