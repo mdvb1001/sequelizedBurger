@@ -6,7 +6,7 @@ var exphbs = require("express-handlebars");
 
 // Server set-up
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
 
 var db = require("./models"); //////////////////////////////////
 
