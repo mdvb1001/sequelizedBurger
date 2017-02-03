@@ -1,14 +1,2 @@
-// // Require Sequelize
-// var Sequelize = require("sequelize");
-// var sequelize = new Sequelize("burgers_db", "root", "", {
-//     host: "localhost",
-//     dialect: "mysql",
-//     pool: {
-//         max: 5,
-//         min: 0,
-//         idle: 1000
-//     }
-// });
-
-// // Exports the connection for other files to use
-// module.exports = sequelize;
+/* Thanks to Sequelize Cli there is no need for this file anymore
+The connections to the local db and the JawsDB for Heroku are config.json */

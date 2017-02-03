@@ -29,7 +29,7 @@ app.set("view engine", "handlebars");
 require("./controllers/burgers_controller.js")(app);
 
 
-// Listens for connection to server on PORT
+// Listens for connection to server (using Sequelize) on PORT
 db.sequelize.sync().then(function(){
     app.listen(PORT, function() {
         console.log("listening on: " + PORT);

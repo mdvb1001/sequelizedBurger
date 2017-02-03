@@ -1,6 +1,4 @@
-// Dependencies
-// Require connection from connection.js
-// var sequelize = require('../config');
+// Defines the burgers model/table and export it
 module.exports = function (sequelize, DataTypes) {
     var Burger = sequelize.define("Burger", {
         id: {
@@ -13,10 +11,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         },
-        // created_at: {
-        //     type: Sequelize.DATE,
-        //     defaultValue: Sequelize.NOW
-        // }
     }, {
         timestamps: true
     });
